@@ -14,7 +14,7 @@
 		4D509CBE1DF00D64009D6292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D509CBD1DF00D64009D6292 /* Assets.xcassets */; };
 		4D509CC11DF00D64009D6292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D509CBF1DF00D64009D6292 /* LaunchScreen.storyboard */; };
 		4D509CCC1DF00D64009D6292 /* TestPodUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D509CCB1DF00D64009D6292 /* TestPodUITests.m */; };
-		4D91BFF51DF00E410058638D /* MXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D91BFF41DF00E410058638D /* MXView.m */; };
+		4D72A2C81DF014C700DC47AC /* MXView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D72A2C71DF014C700DC47AC /* MXView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		4D509CC71DF00D64009D6292 /* TestPodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestPodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D509CCB1DF00D64009D6292 /* TestPodUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPodUITests.m; sourceTree = "<group>"; };
 		4D509CCD1DF00D64009D6292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D91BFF31DF00E410058638D /* MXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXView.h; sourceTree = "<group>"; };
-		4D91BFF41DF00E410058638D /* MXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXView.m; sourceTree = "<group>"; };
+		4D72A2C61DF014C700DC47AC /* MXView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXView.h; sourceTree = "<group>"; };
+		4D72A2C71DF014C700DC47AC /* MXView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		4D509CB01DF00D64009D6292 /* TestPod */ = {
 			isa = PBXGroup;
 			children = (
-				4D91BFF01DF00E230058638D /* MXView */,
+				4D72A2C51DF014C700DC47AC /* MXView */,
 				4D509CB41DF00D64009D6292 /* AppDelegate.h */,
 				4D509CB51DF00D64009D6292 /* AppDelegate.m */,
 				4D509CB71DF00D64009D6292 /* ViewController.h */,
@@ -115,13 +115,14 @@
 			path = TestPodUITests;
 			sourceTree = "<group>";
 		};
-		4D91BFF01DF00E230058638D /* MXView */ = {
+		4D72A2C51DF014C700DC47AC /* MXView */ = {
 			isa = PBXGroup;
 			children = (
-				4D91BFF31DF00E410058638D /* MXView.h */,
-				4D91BFF41DF00E410058638D /* MXView.m */,
+				4D72A2C61DF014C700DC47AC /* MXView.h */,
+				4D72A2C71DF014C700DC47AC /* MXView.m */,
 			);
-			path = MXView;
+			name = MXView;
+			path = ../MXView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +230,7 @@
 				4D509CB91DF00D64009D6292 /* ViewController.m in Sources */,
 				4D509CB61DF00D64009D6292 /* AppDelegate.m in Sources */,
 				4D509CB31DF00D64009D6292 /* main.m in Sources */,
-				4D91BFF51DF00E410058638D /* MXView.m in Sources */,
+				4D72A2C81DF014C700DC47AC /* MXView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
