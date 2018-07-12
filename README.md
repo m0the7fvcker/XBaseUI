@@ -22,7 +22,7 @@ pod 'BaseUI'
 
 ## Author
 
-Poly.ma, poly.ma@corp.to8to.com
+ge3kxm@gmail.com
 
 ## License
 
