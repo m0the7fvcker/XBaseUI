@@ -1,0 +1,12 @@
+use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'BaseUI_Example' do
+  pod 'XBaseUI', :path => '../'
+
+  target 'BaseUI_Tests' do
+    inherit! :search_paths
+
+    #pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
