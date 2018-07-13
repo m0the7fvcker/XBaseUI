@@ -9,15 +9,22 @@ import UIKit
 
 public class BaseNavigationController: UINavigationController {
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        
+        if childViewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        super.pushViewController(viewController, animated: animated)
     }
-
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    public override func popViewController(animated: Bool) -> UIViewController? {
+        
+        if let vc = childViewControllers.last as? BaseViewController {
+            guard !vc.shouldPop() else {
+                return nil
+            }
+            vc.willPop()
+        }
+        return super.popViewController(animated: animated)
     }
-
 }

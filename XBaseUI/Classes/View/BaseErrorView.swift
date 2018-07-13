@@ -58,8 +58,6 @@ public class BaseErrorView: BaseStateView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        
-//        imageView.frame.origin.y += offsetY
             
         refreshTitleView.frame.origin.x = UIScreen.main.bounds.size.width / 2 - refreshTitleView.frame.size.width / 2
         refreshTitleView.frame.origin.y = imageView.frame.maxY + 10

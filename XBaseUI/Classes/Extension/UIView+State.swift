@@ -5,17 +5,17 @@
 //  Created by Poly.ma on 2018/7/11.
 //
 
-fileprivate var stateOffsetYKey = "stateOffsetYKey"
-fileprivate var stateImageSizeKey = "stateImageSizeKey"
-fileprivate var stateImageKey = "stateImageKey"
-fileprivate var stateTextKey = "stateTextKey"
+fileprivate var stateOffsetYKey         = "stateOffsetYKey"
+fileprivate var stateImageSizeKey       = "stateImageSizeKey"
+fileprivate var stateImageKey           = "stateImageKey"
+fileprivate var stateTextKey            = "stateTextKey"
 fileprivate var stateNetworkCallBackKey = "stateNetworkCallBackKey"
 
-fileprivate var stateCommonViewKey = "stateCommonViewKey"
-fileprivate var stateErrorViewKey = "stateErrorViewKey"
+fileprivate var stateCommonViewKey      = "stateCommonViewKey"
+fileprivate var stateErrorViewKey       = "stateErrorViewKey"
 
-fileprivate var stateCommonConfigKey = "stateCommonConfigKey"
-fileprivate var stateErrorConfigKey = "stateErrorConfigKey"
+fileprivate var stateCommonConfigKey    = "stateCommonConfigKey"
+fileprivate var stateErrorConfigKey     = "stateErrorConfigKey"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

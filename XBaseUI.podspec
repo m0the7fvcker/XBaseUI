@@ -33,12 +33,14 @@ TODO: Add long description of the pod here.
   
   s.source_files = 'XBaseUI/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'XBaseUI' => ['XBaseUI/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'XBaseUI' => ['XBaseUI/Assets/*.xcassets',
+                    'XBaseUI/Assets/*.png']
+  }
 
   # s.public_header_files = 'XBaseUI/Classes/**/*.h'
   s.frameworks = 'UIKit'
   s.dependency 'MJRefresh'
   s.dependency 'XBaseUtils' , '~> 1.0.3'
+  s.dependency 'XResourceTool'
 end

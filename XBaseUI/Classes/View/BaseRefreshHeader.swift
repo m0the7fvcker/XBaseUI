@@ -7,6 +7,6 @@
 
 import MJRefresh
 
-public class BaseRefreshHeader: MJRefreshHeader {
+public class BaseRefreshHeader: MJRefreshNormalHeader {
 
 }
