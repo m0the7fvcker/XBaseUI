@@ -43,7 +43,7 @@ extension UIView {
     ///   - offsetY: 偏移
     ///   - text: 文字描述
     ///   - callBack: 刷新回调
-    public func configErrorView(imageSize: CGSize, image: UIImage, offsetY: CGFloat, text: String, callBack: @escaping NetworkCallBack) {
+    public func configErrorView(imageSize: CGSize, image: UIImage, offsetY: CGFloat, text: String, callBack: @escaping NetworkRefreshCallBack) {
         errorConfig = [stateImageSizeKey : imageSize,
                            stateImageKey : image,
                          stateOffsetYKey : offsetY,
@@ -84,7 +84,7 @@ extension UIView {
                                     offsetY: errorConfig[stateOffsetYKey] as! CGFloat,
                                   imageSize: errorConfig[stateImageSizeKey] as! CGSize,
                                       title: errorConfig[stateTextKey] as! String,
-                                   callBack: errorConfig[stateNetworkCallBackKey] as! NetworkCallBack)
+                                   callBack: errorConfig[stateNetworkCallBackKey] as! NetworkRefreshCallBack)
         self.errorView = errorView
         addSubview(errorView)
     }

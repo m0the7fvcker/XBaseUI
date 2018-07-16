@@ -5,14 +5,14 @@
 //  Created by Poly.ma on 2018/7/11.
 //
 
-public typealias NetworkCallBack = (BaseErrorView) -> ()
+public typealias NetworkRefreshCallBack = (BaseErrorView) -> ()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 public class BaseErrorView: BaseStateView {
     var refreshTitleView: UIView!
-    var newworkCallBack: NetworkCallBack?
+    var newworkCallBack: NetworkRefreshCallBack?
     
-    init(frame: CGRect, image: UIImage, offsetY: CGFloat, imageSize: CGSize, title: String, callBack: @escaping NetworkCallBack) {
+    init(frame: CGRect, image: UIImage, offsetY: CGFloat, imageSize: CGSize, title: String, callBack: @escaping NetworkRefreshCallBack) {
         newworkCallBack = callBack
         
         super.init(frame: frame, image: image, offsetY: offsetY, imageSize: imageSize, title: title)

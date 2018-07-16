@@ -43,4 +43,5 @@ TODO: Add long description of the pod here.
   s.dependency 'MJRefresh'
   s.dependency 'XBaseUtils' , '~> 1.0.3'
   s.dependency 'XResourceTool'
+  s.dependency 'SnapKit'
 end
