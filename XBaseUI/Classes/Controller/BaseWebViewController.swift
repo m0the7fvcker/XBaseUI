@@ -117,9 +117,9 @@ extension BaseWebViewController: WKNavigationDelegate {
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url!
         if url.scheme == "tel" ||
-            url.scheme == "sms" ||
-            url.scheme == "mailto" ||
-            url.scheme == "itunes.apple.com" {
+           url.scheme == "sms" ||
+           url.scheme == "mailto" ||
+           url.scheme == "itunes.apple.com" {
             DispatchQueue.main.async {
                 UIApplication.shared.openURL(url)
             }
