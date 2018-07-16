@@ -7,7 +7,9 @@
 
 import UIKit
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/// 网络错误页面默认配置
 struct BaseErrorViewDefaultConfig {
     var defaultOffsetY: CGFloat  = -1
     var defaultImageSize: CGSize = CGSize(width: 100, height: 100)
@@ -20,14 +22,22 @@ protocol BaseViewControllerPopProtocol {
     func willPop()
 }
 
+public typealias BaseBackAction = (UIViewController) -> ()
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 open class BaseViewController: UIViewController {
 
+    //MARK: 返回事件--------------------------------------------
     ///是否能手势返回
-    public var panGestureBackable: Bool?
+    open var panGestureBackable: Bool?
     
     ///返回事件处理
-    public var backAction: ((_ vc: UIViewController) ->())?
+    private var backAction: BaseBackAction?
+    
+    ///设置返回事件
+    open func setBackAction(backAction: @escaping BaseBackAction) {
+        self.backAction = backAction
+    }
     
     //MARK: 生命周期--------------------------------------------
     override open func viewDidLoad() {
@@ -40,10 +50,12 @@ open class BaseViewController: UIViewController {
     
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 可以按需添加埋点方法
     }
     
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // 可以按需添加埋点方法
     }
     
     //MARK: 无网络配置-------------------------------------------
@@ -93,20 +105,27 @@ open class BaseViewController: UIViewController {
     
     //MARK: 是否需要页面统计--------------------------------------
     /// 是否需要页面统计
+    ///
+    /// - Returns: Bool
     open func needViewControllerTracking() -> Bool {
         return false
     }
     
     //MARK: 样式------------------------------------------------
+    /// 返回按钮图片
+    ///
+    /// - Returns: UIImage
     public func backButtonImage() -> UIImage? {
         return BaseImageTool.sharedManager.imageNamed("refresh_0")
     }
     
+    /// 状态栏样式
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
     
-    public func setupNavigationItem() {
+    /// 设置默认导航栏
+    open func setupNavigationItem() {
         setupDefaultBackButton()
     }
     
@@ -127,6 +146,7 @@ open class BaseViewController: UIViewController {
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 extension BaseViewController: BaseViewControllerPopProtocol {
     
     //MARK: 交互------------------------------------------------

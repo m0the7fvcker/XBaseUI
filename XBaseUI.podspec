@@ -40,8 +40,10 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'XBaseUI/Classes/**/*.h'
   s.frameworks = 'UIKit'
+  
   s.dependency 'MJRefresh'
   s.dependency 'XBaseUtils' , '~> 1.0.3'
   s.dependency 'XResourceTool'
   s.dependency 'SnapKit'
+  s.dependency 'WebViewJavascriptBridge'
 end

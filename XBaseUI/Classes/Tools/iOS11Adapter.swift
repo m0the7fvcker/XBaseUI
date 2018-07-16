@@ -44,6 +44,7 @@ public class iOS11Adapter: NSObject {
 fileprivate var safeAreaLayoutGuideViewKey = "safeAreaLayoutGuideViewKey"
 
 extension UIViewController {
+    
     public var safeAreaLayoutGuideView: UIView? {
         set {
             objc_setAssociatedObject(self, &safeAreaLayoutGuideViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -53,7 +54,12 @@ extension UIViewController {
         }
     }
     
-    /// 生成safeAreaView
+    /// 生成safeAreaView，添加适配约束，在当前控制器View的safeAreaLayoutGuide内，
+    /// 适配时，先调用generateSafeAreaLayoutGuideView()方法，然后再将子控件添加到
+    /// safeAreaLayoutGuideView中
+    /// eg: generateSafeAreaLayoutGuideView()
+    ///     safeAreaLayoutGuideView!.addSubview(webView)
+    /// 注意：生成后不要再使用view来添加
     public func generateSafeAreaLayoutGuideView() {
         if let safeView = self.safeAreaLayoutGuideView {
             safeView.removeFromSuperview()
