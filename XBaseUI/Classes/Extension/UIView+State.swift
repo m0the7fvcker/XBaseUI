@@ -30,7 +30,7 @@ extension UIView {
     ///   - offsetY: 偏移
     ///   - text: 文字描述
     public func configSateView(imageSize: CGSize = CGSize(width: 100, height: 100),
-                                   image: UIImage = BaseImageTool.sharedManager.imageNamed("refresh_0") ?? UIImage(),
+                                   image: UIImage = BaseImage("base_state_noData"),
                                  offsetY: CGFloat = -1,
                                     font: UIFont = UIFont.systemFont(ofSize: 13),
                                     text: String = "这里空空如野") {
@@ -50,7 +50,7 @@ extension UIView {
     ///   - text: 文字描述
     ///   - callBack: 刷新回调
     public func configErrorView(imageSize: CGSize = CGSize(width: 100, height: 100),
-                                    image: UIImage = BaseImageTool.sharedManager.imageNamed("refresh_0") ?? UIImage(),
+                                    image: UIImage = BaseImage("base_state_noConnect"),
                                   offsetY: CGFloat = -1,
                                      font: UIFont = UIFont.systemFont(ofSize: 13),
                                      text: String = "网络炸了",

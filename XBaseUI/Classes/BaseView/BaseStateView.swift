@@ -9,8 +9,6 @@ import UIKit
 import XBaseUtils
 import SnapKit
 
-fileprivate let margin: CGFloat = 5
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 public class BaseStateView: UIView {
     var image: UIImage?
@@ -59,7 +57,7 @@ public class BaseStateView: UIView {
         
         titleView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(5)
+            make.top.equalTo(imageView.snp.bottom).offset(10)
             make.height.equalTo(18)
         }
     }

@@ -42,7 +42,7 @@ public class BaseErrorView: BaseStateView {
         
         titleView.snp.remakeConstraints { (make) in
             make.right.equalTo(imageView.snp.centerX)
-            make.top.equalTo(imageView.snp.bottom).offset(5)
+            make.top.equalTo(imageView.snp.bottom).offset(10)
             make.height.equalTo(18)
         }
         

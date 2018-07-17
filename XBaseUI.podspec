@@ -47,4 +47,7 @@ TODO: Add long description of the pod here.
   s.dependency 'XResourceTool'
   s.dependency 'SnapKit'
   s.dependency 'WebViewJavascriptBridge'
+  s.dependency 'PKHUD' , '~> 5.1.0'
+  s.dependency 'Toast-Swift' , '~> 3.0.1'
+  
 end

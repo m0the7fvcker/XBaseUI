@@ -9,11 +9,12 @@ import UIKit
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/// 网络错误页面默认配置
+/// 网络错误页面默认统一配置
 struct BaseErrorViewDefaultConfig {
     var defaultOffsetY: CGFloat  = -1
     var defaultImageSize: CGSize = CGSize(width: 100, height: 100)
-    var defaultImage: UIImage    = BaseImageTool.sharedManager.imageNamed("base_state_noData") ?? UIImage()
+    var defaultImage: UIImage    = BaseImage("base_state_noConnect")
+    var defaultFont: UIFont      = UIFont.systemFont(ofSize: 13)
     var defaultErrorDes: String  = "网络亲爹爆炸了"
 }
 
@@ -69,7 +70,8 @@ open class BaseViewController: UIViewController {
         return false
     }
     
-    /// 让需要显示网络错误页面显示
+    /// 让需要显示网络错误页面显示，用此方法配合viewsShouldShowDefaultNetErrorPage()
+    /// 方法一起使用不需要手动再去每个view配置
     ///
     /// - Parameter isShowing: Bool
     open func setDefualtNetErrorPageShowing(isShowing: Bool) {
@@ -80,6 +82,7 @@ open class BaseViewController: UIViewController {
             v.configErrorView(imageSize: baseErrorConfig.defaultImageSize,
                                   image: baseErrorConfig.defaultImage,
                                 offsetY: baseErrorConfig.defaultOffsetY,
+                                   font: baseErrorConfig.defaultFont,
                                    text: baseErrorConfig.defaultErrorDes,
                                callBack: { (errroView) in
                 
@@ -94,7 +97,8 @@ open class BaseViewController: UIViewController {
         }
     }
     
-    /// 需要显示网络错误页面的View
+    /// 需要显示网络错误页面的View，配合方法setDefualtNetErrorPageShowing()
+    /// 一起使用
     ///
     /// - Returns: views
     open func viewsShouldShowDefaultNetErrorPage() -> [UIView] {
@@ -116,7 +120,7 @@ open class BaseViewController: UIViewController {
     ///
     /// - Returns: UIImage
     public func backButtonImage() -> UIImage? {
-        return BaseImageTool.sharedManager.imageNamed("refresh_0")
+        return BaseImage("base_button_back")
     }
     
     /// 状态栏样式

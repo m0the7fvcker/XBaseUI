@@ -8,7 +8,17 @@
 import UIKit
 import XResourceTool
 
-class BundleClass: NSObject {
+
+/// 提供简便方法，类似宏功能，方便使用
+///
+/// - Parameter imageName: name
+/// - Returns: UIImage
+public func BaseImage(_ imageName: String) -> UIImage {
+    return BaseImageTool.sharedManager.imageNamed(imageName) ?? UIImage()
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+fileprivate class BundleClass: NSObject {
     
 }
 
