@@ -6,34 +6,62 @@
 //
 
 import UIKit
+import XBaseUtils
+import SnapKit
 
-fileprivate let margin: CGFloat = 10
+fileprivate let margin: CGFloat = 5
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 public class BaseStateView: UIView {
     var image: UIImage?
     var offsetY: CGFloat = -1
+    var font: UIFont?
+    var title: String?
     var imageSize: CGSize = CGSize(width: 100, height: 100)
     
     var imageView: UIImageView
     var titleView: UILabel
     
-    init(frame: CGRect, image: UIImage, offsetY: CGFloat, imageSize: CGSize, title: String) {
+    init(frame: CGRect, image: UIImage, offsetY: CGFloat, font: UIFont, imageSize: CGSize, title: String) {
         self.image = image
         self.offsetY = offsetY
+        self.font = font
         self.imageSize = imageSize
+        self.title = title
         
+        // 注意初始化顺序
         imageView = UIImageView(image: image)
         titleView = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         titleView.text = title
+        titleView.font = font
+        titleView.textColor = UIColor(hexValue: "666666")
         titleView.sizeToFit()
         
         super.init(frame: frame)
         
         backgroundColor = .white
         
-        self.addSubview(imageView)
-        self.addSubview(titleView)
+        addSubview(imageView)
+        addSubview(titleView)
+        
+        setupSubviews()
+        setupConstraints()
+    }
+    
+    open func setupSubviews() {}
+    
+    open func setupConstraints() {
+        imageView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.equalTo(imageSize.width)
+            make.height.equalTo(imageSize.height)
+        }
+        
+        titleView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(5)
+            make.height.equalTo(18)
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -42,12 +70,5 @@ public class BaseStateView: UIView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        
-        imageView.frame = CGRect(x: self.frame.size.width / 2 - imageSize.width / 2, y: 0, width: imageSize.width, height: imageSize.width)
-        imageView.frame.origin.y = self.frame.size.height / 2 - imageView.frame.size.height / 2 + offsetY
-        
-        titleView.frame.origin.x = self.frame.size.width / 2 - titleView.frame.size.width / 2
-        titleView.frame.origin.y = imageView.frame.maxY + margin
-        
     }
 }

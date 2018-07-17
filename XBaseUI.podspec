@@ -35,7 +35,8 @@ TODO: Add long description of the pod here.
   
   s.resource_bundles = {
      'XBaseUI' => ['XBaseUI/Assets/*.xcassets',
-                    'XBaseUI/Assets/*.png']
+                    'XBaseUI/Assets/*.png',
+                    'XBaseUI/Assets/*.bundle']
   }
 
   # s.public_header_files = 'XBaseUI/Classes/**/*.h'

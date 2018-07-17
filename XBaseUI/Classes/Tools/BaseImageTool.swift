@@ -12,9 +12,9 @@ class BundleClass: NSObject {
     
 }
 
-class BaseImageTool: YSImageManager {
+public class BaseImageTool: YSImageManager {
 
-    static let sharedManager: BaseImageTool = BaseImageTool()
+    static public let sharedManager: BaseImageTool = BaseImageTool()
     private override init() {
         let bundle = Bundle(for: BundleClass.init().classForCoder)
         super.init(bundle: bundle)

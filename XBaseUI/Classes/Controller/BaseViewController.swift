@@ -13,7 +13,7 @@ import UIKit
 struct BaseErrorViewDefaultConfig {
     var defaultOffsetY: CGFloat  = -1
     var defaultImageSize: CGSize = CGSize(width: 100, height: 100)
-    var defaultImage: UIImage    = UIImage(named: "") ?? UIImage()
+    var defaultImage: UIImage    = BaseImageTool.sharedManager.imageNamed("base_state_noData") ?? UIImage()
     var defaultErrorDes: String  = "网络亲爹爆炸了"
 }
 

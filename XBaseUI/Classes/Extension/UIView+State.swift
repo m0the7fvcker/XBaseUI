@@ -9,6 +9,7 @@ fileprivate var stateOffsetYKey         = "stateOffsetYKey"
 fileprivate var stateImageSizeKey       = "stateImageSizeKey"
 fileprivate var stateImageKey           = "stateImageKey"
 fileprivate var stateTextKey            = "stateTextKey"
+fileprivate var stateFontKey            = "stateFontKey"
 fileprivate var stateNetworkCallBackKey = "stateNetworkCallBackKey"
 
 fileprivate var stateCommonViewKey      = "stateCommonViewKey"
@@ -28,10 +29,15 @@ extension UIView {
     ///   - image: 图片内容
     ///   - offsetY: 偏移
     ///   - text: 文字描述
-    public func configSateView(imageSize: CGSize, image: UIImage, offsetY: CGFloat, text: String) {
+    public func configSateView(imageSize: CGSize = CGSize(width: 100, height: 100),
+                                   image: UIImage = BaseImageTool.sharedManager.imageNamed("refresh_0") ?? UIImage(),
+                                 offsetY: CGFloat = -1,
+                                    font: UIFont = UIFont.systemFont(ofSize: 13),
+                                    text: String = "这里空空如野") {
         commonConfig = [stateImageSizeKey : imageSize,
                             stateImageKey : image,
                           stateOffsetYKey : offsetY,
+                              stateFontKey: font,
                              stateTextKey : text]
     }
     
@@ -43,10 +49,16 @@ extension UIView {
     ///   - offsetY: 偏移
     ///   - text: 文字描述
     ///   - callBack: 刷新回调
-    public func configErrorView(imageSize: CGSize, image: UIImage, offsetY: CGFloat, text: String, callBack: @escaping NetworkRefreshCallBack) {
+    public func configErrorView(imageSize: CGSize = CGSize(width: 100, height: 100),
+                                    image: UIImage = BaseImageTool.sharedManager.imageNamed("refresh_0") ?? UIImage(),
+                                  offsetY: CGFloat = -1,
+                                     font: UIFont = UIFont.systemFont(ofSize: 13),
+                                     text: String = "网络炸了",
+                                 callBack: @escaping NetworkRefreshCallBack) {
         errorConfig = [stateImageSizeKey : imageSize,
                            stateImageKey : image,
                          stateOffsetYKey : offsetY,
+                             stateFontKey: font,
                             stateTextKey : text,
                  stateNetworkCallBackKey : callBack]
     }
@@ -59,6 +71,7 @@ extension UIView {
         let stateView = BaseStateView(frame: bounds,
                                       image: commonConfig[stateImageKey] as! UIImage,
                                     offsetY: commonConfig[stateOffsetYKey] as! CGFloat,
+                                       font: commonConfig[stateFontKey] as! UIFont,
                                   imageSize: commonConfig[stateImageSizeKey] as! CGSize,
                                       title: commonConfig[stateTextKey] as! String)
         self.stateView = stateView
@@ -82,6 +95,7 @@ extension UIView {
         let errorView = BaseErrorView(frame: bounds,
                                       image: errorConfig[stateImageKey] as! UIImage,
                                     offsetY: errorConfig[stateOffsetYKey] as! CGFloat,
+                                       font: errorConfig[stateFontKey] as! UIFont,
                                   imageSize: errorConfig[stateImageSizeKey] as! CGSize,
                                       title: errorConfig[stateTextKey] as! String,
                                    callBack: errorConfig[stateNetworkCallBackKey] as! NetworkRefreshCallBack)
@@ -100,6 +114,7 @@ extension UIView {
     
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 extension UIView {
     
     private var commonConfig: Dictionary<String , Any> {
@@ -107,15 +122,7 @@ extension UIView {
             objc_setAssociatedObject(self, &stateCommonConfigKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get {
-            guard let commonConfig = objc_getAssociatedObject(self, &stateCommonConfigKey) as? Dictionary<String, Any> else {
-                return
-                    [stateImageSizeKey : CGSize(width: 100, height: 100),
-                         stateImageKey : UIImage(),
-                       stateOffsetYKey : -1,
-                          stateTextKey : "这里空空如野",
-                     ]
-            }
-            return commonConfig
+            return objc_getAssociatedObject(self, &stateCommonConfigKey) as! Dictionary<String, Any>
         }
     }
     
@@ -124,15 +131,7 @@ extension UIView {
             objc_setAssociatedObject(self, &stateErrorConfigKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get {
-            guard let errorConfig = objc_getAssociatedObject(self, &stateErrorConfigKey) as? Dictionary<String, Any> else {
-                return
-                    [stateImageSizeKey : CGSize(width: 100, height: 100),
-                     stateImageKey : UIImage(),
-                     stateOffsetYKey : -1,
-                     stateTextKey : "网络炸了",
-                     stateNetworkCallBackKey : {}]
-            }
-            return errorConfig
+            return objc_getAssociatedObject(self, &stateErrorConfigKey) as! Dictionary<String, Any>
         }
     }
     
@@ -141,10 +140,7 @@ extension UIView {
             objc_setAssociatedObject(self, &stateCommonViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get {
-            guard let stateView = objc_getAssociatedObject(self, &stateCommonViewKey) as? BaseStateView else {
-                return nil
-            }
-            return stateView
+            return objc_getAssociatedObject(self, &stateCommonViewKey) as? BaseStateView
         }
     }
     
@@ -153,10 +149,7 @@ extension UIView {
             objc_setAssociatedObject(self, &stateErrorViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         get {
-            guard let errorView = objc_getAssociatedObject(self, &stateErrorViewKey) as? BaseErrorView else {
-                return nil
-            }
-            return errorView
+            return objc_getAssociatedObject(self, &stateErrorViewKey) as? BaseErrorView
         }
     }
 }

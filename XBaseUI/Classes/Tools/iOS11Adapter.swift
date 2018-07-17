@@ -59,7 +59,7 @@ extension UIViewController {
     /// safeAreaLayoutGuideView中
     /// eg: generateSafeAreaLayoutGuideView()
     ///     safeAreaLayoutGuideView!.addSubview(webView)
-    /// 注意：生成后不要再使用view来添加
+    /// 注意：生成后不要再使用view来添加，使用safeAreaLayoutGuideView
     public func generateSafeAreaLayoutGuideView() {
         if let safeView = self.safeAreaLayoutGuideView {
             safeView.removeFromSuperview()
