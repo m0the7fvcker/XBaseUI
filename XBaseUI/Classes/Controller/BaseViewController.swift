@@ -47,6 +47,7 @@ open class BaseViewController: UIViewController {
     
     //MARK: 生命周期--------------------------------------------
     override open func viewDidLoad() {
+        setupBackgroundColor()
         setupNavigationItem()
     }
     
@@ -138,6 +139,11 @@ open class BaseViewController: UIViewController {
         setupDefaultBackButton()
     }
     
+    /// 设置默认背景颜色
+    open func setupBackgroundColor() {
+        view.backgroundColor = UIColor(hexValue: "f6f6f6")
+    }
+    
     //MARK: 私有方法---------------------------------------------
     private func setupDefaultBackButton() {
         let backButton = BackDefaultButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -160,10 +166,10 @@ extension BaseViewController: BaseViewControllerPopProtocol {
     
     //MARK: 交互------------------------------------------------
     /// 将要返回
-    public func willPop() {}
+    open func willPop() {}
     
     /// 是否返回
-    public func shouldPop() -> Bool {
+    open func shouldPop() -> Bool {
         return true
     }
 }
@@ -171,7 +177,7 @@ extension BaseViewController: BaseViewControllerPopProtocol {
 extension BaseViewController: BaseViewControllerHideNavProtocol {
     
     //MARK: 是否隐藏导航栏------------------------------------------
-    public func shouldHideNavBar() -> Bool {
+    open func shouldHideNavBar() -> Bool {
         return false
     }
 }

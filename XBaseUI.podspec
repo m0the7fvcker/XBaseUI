@@ -38,7 +38,7 @@ TODO: Add long description of the pod here.
                     'XBaseUI/Assets/*.png',
                     'XBaseUI/Assets/*.bundle']
   }
-
+  
   # s.public_header_files = 'XBaseUI/Classes/**/*.h'
   s.frameworks = 'UIKit'
   
