@@ -18,9 +18,14 @@ struct BaseErrorViewDefaultConfig {
     var defaultErrorDes: String  = "网络亲爹爆炸了"
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 protocol BaseViewControllerPopProtocol {
     func shouldPop() -> Bool
     func willPop()
+}
+
+protocol BaseViewControllerHideNavProtocol {
+    func shouldHideNavBar() -> Bool
 }
 
 public typealias BaseBackAction = (UIViewController) -> ()
@@ -160,5 +165,13 @@ extension BaseViewController: BaseViewControllerPopProtocol {
     /// 是否返回
     public func shouldPop() -> Bool {
         return true
+    }
+}
+
+extension BaseViewController: BaseViewControllerHideNavProtocol {
+    
+    //MARK: 是否隐藏导航栏------------------------------------------
+    public func shouldHideNavBar() -> Bool {
+        return false
     }
 }
