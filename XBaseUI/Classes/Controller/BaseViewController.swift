@@ -147,6 +147,7 @@ open class BaseViewController: UIViewController {
     //MARK: 私有方法---------------------------------------------
     private func setupDefaultBackButton() {
         let backButton = BackDefaultButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
         backButton.setImage(self.backButtonImage(), for: .normal)
         backButton.addTarget(self, action: #selector(defualtBackAction(sender:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
