@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/Ge3kX/XBaseUI.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.swift_version = '4.1'
   
   s.source_files = 'XBaseUI/Classes/**/*'
@@ -43,7 +43,7 @@ TODO: Add long description of the pod here.
   s.frameworks = 'UIKit'
   
   s.dependency 'MJRefresh'
-  s.dependency 'XBaseUtils' , '~> 1.0.3'
+  s.dependency 'XBaseUtils'
   s.dependency 'XResourceTool'
   s.dependency 'SnapKit'
   s.dependency 'WebViewJavascriptBridge'

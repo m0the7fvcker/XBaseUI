@@ -38,12 +38,7 @@ open class BaseViewController: UIViewController {
     open var panGestureBackable: Bool?
     
     ///返回事件处理
-    private var backAction: BaseBackAction?
-    
-    ///设置返回事件
-    open func setBackAction(backAction: @escaping BaseBackAction) {
-        self.backAction = backAction
-    }
+    open var backAction: BaseBackAction?
     
     //MARK: 生命周期--------------------------------------------
     override open func viewDidLoad() {

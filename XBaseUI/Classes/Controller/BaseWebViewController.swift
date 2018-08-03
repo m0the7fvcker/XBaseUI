@@ -76,16 +76,22 @@ open class BaseWebViewController: BaseViewController {
     }
     
     //MARK:override----------------------------------------------------------------
-    override open func setBackAction(backAction: @escaping BaseBackAction) {
-        if webView.canGoBack {
-            webView.goBack()
-        } else {
-            if let navVC = navigationController {
-                navVC.popViewController(animated: true)
-            } else {
-                dismiss(animated: true, completion: nil)
+    open override var backAction: BaseBackAction? {
+        get {
+            return {
+                _ in
+                if self.webView.canGoBack {
+                    self.webView.goBack()
+                } else {
+                    if let navVC = self.navigationController {
+                        navVC.popViewController(animated: true)
+                    } else {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
+        set {}
     }
     
     //MARK:监听进度-----------------------------------------------------------------
