@@ -20,9 +20,9 @@ it, simply add the following line to your Podfile:
 pod 'XBaseUI'
 ```  
 
-## 模块整体结构
+## 模块整体结构
 
-BaseView:
+BaseView:
 
 - BackDefaultButton：自定义导航栏返回按钮
 
@@ -36,17 +36,17 @@ BaseView:
 
 Controller：
 
-- BaseNavigationController：自定义导航栏，可以按需扩展
+- BaseNavigationController：自定义导航栏，可以按需扩展
 
-- BaseViewController：自定义VC，包含页面埋点统计，统一配置子View，自定义返回等等功能，按需重写使用
+- BaseViewController：自定义VC，包含页面埋点统计，统一配置子View，自定义返回等等功能，按需重写使用
 
-- BaseWebViewController：自定义包含WKWebView的VC，能监听加载进度，包含jsBridge，方便使用
+- BaseWebViewController：自定义包含WKWebView的VC，能监听加载进度，包含jsBridge，方便使用
 
 - BaseTabBarController: 自定义TabBarVC，可以按需扩展
 
 Extension:
 
-- UIScrollView+Refresh:下拉刷新相关Extension
+- UIScrollView+Refresh:下拉刷新相关Extension
 
 - UIView+HUD：HUD遮照
 
